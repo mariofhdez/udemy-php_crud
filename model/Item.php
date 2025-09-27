@@ -1,6 +1,6 @@
 <?php
     class Item extends Connect{
-        public function get_item(){
+        public function get_items(){
             $connect= parent::connection();
             parent::set_names();
             $sql="SELECT * FROM tm_item WHERE status=1";
