@@ -14,7 +14,7 @@
             parent::set_names();
             $sql="SELECT * FROM tm_item WHERE item_id = ?";
             $sql=$connect->prepare($sql);
-            $sql->bindValue(1,$item_id)
+            $sql->bindValue(1,$item_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
