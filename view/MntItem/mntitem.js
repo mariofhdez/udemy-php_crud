@@ -92,6 +92,7 @@ function edit(item_id) {
     $('#item_name').val(info.item_name);
     $('#category_id').val(info.category_id);
     $('#item_desc').val(info.item_desc);
+    $('#item_quantity').val(info.item_quantity);
     console.log(data);
   })
 
@@ -126,6 +127,7 @@ $(document).on("click", "#btn-new", function () {
   $("#mdl-title").html("Nuevo registro");
   $('#item_form')[0].reset();
   $('#item_id').val('');
+  $('#item_quantity').val('');
   $("#modalmantenimiento").modal("show");
 });
 

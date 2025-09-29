@@ -8,6 +8,7 @@
             tm_item.item_name,
             tm_item.category_id,
             tm_item.details,
+            tm_item.item_quantity,
             tm_category.category_name
             FROM
             tm_item
@@ -48,7 +49,7 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function insert_item($item_name, $category_id, $item_desc){
+        public function insert_item($item_name, $category_id, $item_desc, $item_quantity){
             $connect= parent::connection();
             parent::set_names();
             $sql="INSERT INTO tm_item (
@@ -56,6 +57,7 @@
                     item_name,
                     category_id,
                     details,
+                    item_quantity,
                     creation_date,
                     update_date,
                     delete_date,
@@ -63,6 +65,7 @@
                 )
                 VALUES (
                     NULL,
+                    ?,
                     ?,
                     ?,
                     ?,
@@ -75,11 +78,12 @@
             $sql->bindValue(1,$item_name);
             $sql->bindValue(2,$category_id);
             $sql->bindValue(3,$item_desc);
+            $sql->bindValue(4,$item_quantity);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
 
-        public function update_item($item_id, $item_name, $category_id, $item_desc){
+        public function update_item($item_id, $item_name, $category_id, $item_desc, $item_quantity){
             $connect= parent::connection();
             parent::set_names();
             $sql="UPDATE tm_item
@@ -87,6 +91,7 @@
                     item_name=?,
                     category_id=?,
                     details=?,
+                    item_quantity=?,
                     update_date=now()
                 WHERE
                     item_id = ?
@@ -95,7 +100,8 @@
             $sql->bindValue(1,$item_name);
             $sql->bindValue(2,$category_id);
             $sql->bindValue(3,$item_desc);
-            $sql->bindValue(4,$item_id);
+            $sql->bindValue(4,$item_quantity);
+            $sql->bindValue(5,$item_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }

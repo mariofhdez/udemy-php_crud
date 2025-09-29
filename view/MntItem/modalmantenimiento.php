@@ -13,6 +13,10 @@
                         <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Ingrese Nombre" required>
                     </div>
                     <div class="form-group">
+                        <label class="form-label" for="item_quantity">Cantidad</label>
+                        <input type="number" class="form-control" id="item_quantity" name="item_quantity" placeholder="Ingrese Cantidad" required>
+                    </div>
+                    <div class="form-group">
                         <label class="form-label" for="category_id">Categoría</label>
                         <select class="form-control select-2" name="category_id" id="category_id" data-placeholder="Seleccione"></select>
                     </div>
