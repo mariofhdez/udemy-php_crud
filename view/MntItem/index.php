@@ -36,8 +36,9 @@
               <thead>
                 <tr>
                   <th class="wd-15p">Nombre</th>
-                  <th class="wd-15p">Last name</th>
-                  <th class="wd-20p">Position</th>
+                  <th class="wd-20p">Descripción</th>
+                  <th class="wd-10p"></th>
+                  <th class="wd-20p"></th>
                 </tr>
               </thead>
               <tbody>

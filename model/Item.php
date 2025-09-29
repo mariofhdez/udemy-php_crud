@@ -35,12 +35,13 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function insert_item($item_name){
+        public function insert_item($item_name, $item_desc){
             $connect= parent::connection();
             parent::set_names();
             $sql="INSERT INTO tm_item (
                     item_id,
                     item_name,
+                    details,
                     creation_date,
                     update_date,
                     delete_date,
@@ -49,6 +50,7 @@
                 VALUES (
                     NULL,
                     ?,
+                    ?,
                     now(),
                     NULL,
                     NULL,
@@ -56,23 +58,26 @@
                 )";
             $sql=$connect->prepare($sql);
             $sql->bindValue(1,$item_name);
+            $sql->bindValue(2,$item_desc);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
 
-        public function update_item($item_id, $item_name){
+        public function update_item($item_id, $item_name, $item_desc){
             $connect= parent::connection();
             parent::set_names();
             $sql="UPDATE tm_item
                 SET 
-                    name=?,
+                    item_name=?,
+                    details=?,
                     update_date=now()
                 WHERE
                     item_id = ?
                 ";
             $sql=$connect->prepare($sql);
             $sql->bindValue(1,$item_name);
-            $sql->bindValue(2,$item_id);
+            $sql->bindValue(2,$item_desc);
+            $sql->bindValue(3,$item_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }

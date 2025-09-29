@@ -67,7 +67,6 @@ function guardaryeditar(e){
         processData: false,
         success: function(datos){
             console.log(datos);
-            $('#item_form')[0].reset();
             $("#modalmantenimiento").modal('hide');
             $('#item_data').DataTable().ajax.reload();
 
@@ -81,7 +80,17 @@ function guardaryeditar(e){
 }
 
 function edit(item_id) {
-  console.log(item_id);
+  $("#mdl-title").html('Editar registro');
+
+  $.post("../../controller/item.php?op=show", {item_id : item_id}, function(data){
+    info = JSON.parse(data);
+    $('#item_id').val(info.item_id);
+    $('#item_name').val(info.item_name);
+    $('#item_desc').val(info.item_desc);
+    console.log(data);
+  })
+
+  $("#modalmantenimiento").modal("show");
 }
 
 function destroy(item_id) {
@@ -110,6 +119,8 @@ function destroy(item_id) {
 
 $(document).on("click", "#btn-new", function () {
   $("#mdl-title").html("Nuevo registro");
+  $('#item_form')[0].reset();
+  $('#item_id').val('');
   $("#modalmantenimiento").modal("show");
 });
 

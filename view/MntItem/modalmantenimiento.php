@@ -3,7 +3,7 @@
         <div class="modal-content">
             <form method="post" id="item_form">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="mdl-titulo"></h4>
+                    <h4 class="modal-title" id="mdl-title"></h4>
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="item_id" name="item_id">
@@ -11,6 +11,10 @@
                     <div class="form-group">
                         <label class="form-label" for="item_name">Nombre</label>
                         <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Ingrese Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="item_desc">Descripción</label>
+                        <textarea rows=3 type="text" class="form-control" id="item_desc" name="item_desc" placeholder="Ingrese Descripción" required></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
