@@ -35,10 +35,11 @@
             <table id="item_data" class="table display responsive nowrap">
               <thead>
                 <tr>
-                  <th class="wd-15p">Nombre</th>
-                  <th class="wd-20p">Descripción</th>
+                  <th class="wd-30p">Nombre</th>
+                  <th class="wd-20p">Categoría</th>
+                  <th class="wd-30p">Descripción</th>
                   <th class="wd-10p"></th>
-                  <th class="wd-20p"></th>
+                  <th class="wd-10p"></th>
                 </tr>
               </thead>
               <tbody>

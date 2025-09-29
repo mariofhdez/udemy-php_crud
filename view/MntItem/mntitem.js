@@ -1,9 +1,13 @@
 var table;
 
 function init() {
-    $("#item_form").on("submit",function(e){
-        guardaryeditar(e);	
-    });
+  $.post("../../controller/category.php?op=combo", function(data){
+    $("#category_id").html(data);
+  })
+
+  $("#item_form").on("submit",function(e){
+      guardaryeditar(e);	
+  });
 }
 
 $(document).ready(function () {
@@ -86,6 +90,7 @@ function edit(item_id) {
     info = JSON.parse(data);
     $('#item_id').val(info.item_id);
     $('#item_name').val(info.item_name);
+    $('#category_id').val(info.category_id);
     $('#item_desc').val(info.item_desc);
     console.log(data);
   })

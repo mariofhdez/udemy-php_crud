@@ -1,5 +1,5 @@
 <div id="modalmantenimiento" class="modal fade bd-example-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form method="post" id="item_form">
                 <div class="modal-header">
@@ -11,6 +11,10 @@
                     <div class="form-group">
                         <label class="form-label" for="item_name">Nombre</label>
                         <input type="text" class="form-control" id="item_name" name="item_name" placeholder="Ingrese Nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="category_id">Categoría</label>
+                        <select class="form-control select-2" name="category_id" id="category_id" data-placeholder="Seleccione"></select>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="item_desc">Descripción</label>

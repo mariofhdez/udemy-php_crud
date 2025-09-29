@@ -3,7 +3,20 @@
         public function get_items(){
             $connect= parent::connection();
             parent::set_names();
-            $sql="SELECT * FROM tm_item WHERE status=1";
+            $sql="SELECT
+            tm_item.item_id,
+            tm_item.item_name,
+            tm_item.category_id,
+            tm_item.details,
+            tm_category.category_name
+            FROM
+            tm_item
+            INNER JOIN
+            tm_category 
+            ON 
+            tm_item.category_id=tm_category.category_id
+            WHERE
+            tm_item.status = 1";
             $sql=$connect->prepare($sql);
             $sql->execute();
             return $resultado=$sql->fetchAll();
@@ -35,12 +48,13 @@
             return $resultado=$sql->fetchAll();
         }
 
-        public function insert_item($item_name, $item_desc){
+        public function insert_item($item_name, $category_id, $item_desc){
             $connect= parent::connection();
             parent::set_names();
             $sql="INSERT INTO tm_item (
                     item_id,
                     item_name,
+                    category_id,
                     details,
                     creation_date,
                     update_date,
@@ -51,6 +65,7 @@
                     NULL,
                     ?,
                     ?,
+                    ?,
                     now(),
                     NULL,
                     NULL,
@@ -58,17 +73,19 @@
                 )";
             $sql=$connect->prepare($sql);
             $sql->bindValue(1,$item_name);
-            $sql->bindValue(2,$item_desc);
+            $sql->bindValue(2,$category_id);
+            $sql->bindValue(3,$item_desc);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }
 
-        public function update_item($item_id, $item_name, $item_desc){
+        public function update_item($item_id, $item_name, $category_id, $item_desc){
             $connect= parent::connection();
             parent::set_names();
             $sql="UPDATE tm_item
                 SET 
                     item_name=?,
+                    category_id=?,
                     details=?,
                     update_date=now()
                 WHERE
@@ -76,8 +93,9 @@
                 ";
             $sql=$connect->prepare($sql);
             $sql->bindValue(1,$item_name);
-            $sql->bindValue(2,$item_desc);
-            $sql->bindValue(3,$item_id);
+            $sql->bindValue(2,$category_id);
+            $sql->bindValue(3,$item_desc);
+            $sql->bindValue(4,$item_id);
             $sql->execute();
             return $resultado=$sql->fetchAll();
         }

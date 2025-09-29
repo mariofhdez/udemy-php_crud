@@ -27,5 +27,6 @@
 <link href="../../public/lib/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
 <link rel="stylesheet" href="../../public/datatables/jquery.dataTables.min.css">
 <link href="../../public/datatables/buttons.dataTables.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../public/lib/select2/css/select2.min.css">
 <!-- Bracket CSS -->
 <link rel="stylesheet" href="../../public/css/bracket.css">
