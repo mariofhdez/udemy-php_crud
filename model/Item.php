@@ -39,7 +39,7 @@
             $connect= parent::connection();
             parent::set_names();
             $sql="INSERT INTO tm_item (
-                    item_id
+                    item_id,
                     item_name,
                     creation_date,
                     update_date,
